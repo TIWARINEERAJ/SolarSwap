@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: 16 185 129; /* Green */
+  --color-secondary: 59 130 246; /* Blue */
+  --color-accent: 245 158 11; /* Amber */
+  --color-success: 16 185 129; /* Green */
+  --color-warning: 250 204 21; /* Yellow */
+  --color-error: 239 68 68; /* Red */
+  --color-background: 240 253 250; /* Teal 50 */
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-teal-50 to-blue-50 min-h-screen;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-slate-800 leading-tight;
+  }
+
+  p {
+    @apply text-slate-600 leading-relaxed;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-md rounded-xl border border-white/20 shadow-md;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 
+    disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-emerald-500 text-white hover:bg-emerald-600 focus:ring-emerald-500;
+  }
+
+  .btn-secondary {
+    @apply btn bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500;
+  }
+
+  .btn-accent {
+    @apply btn bg-amber-500 text-white hover:bg-amber-600 focus:ring-amber-500;
+  }
+
+  .btn-outline {
+    @apply btn bg-transparent border border-slate-300 text-slate-700 hover:bg-slate-50;
+  }
+
+  .input {
+    @apply px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 
+    focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+  }
+
+  .badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-emerald-100 text-emerald-800;
+  }
+
+  .badge-warning {
+    @apply badge bg-amber-100 text-amber-800;
+  }
+
+  .badge-error {
+    @apply badge bg-red-100 text-red-800;
+  }
+
+  .animate-fade-in {
+    @apply animate-[fadeIn_0.3s_ease-in-out];
+  }
+
+  .animate-slide-up {
+    @apply animate-[slideUp_0.3s_ease-in-out];
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
